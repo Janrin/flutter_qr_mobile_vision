@@ -3,6 +3,7 @@ package com.github.rmtmckenzie.qrmobilevision;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.ImageFormat;
+import android.graphics.Rect;
 import android.media.Image;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -51,6 +52,7 @@ class QrDetector2 {
         final int vPlaneRowStride;
 
         public QrImage(Image image) {
+            image.setCropRect(new Rect(200, 200, 200, 200));
             Image.Plane[] planes = image.getPlanes();
             Image.Plane yPlane = planes[0];
             Image.Plane uPlane = planes[1];
